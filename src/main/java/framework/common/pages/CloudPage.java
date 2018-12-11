@@ -1,4 +1,4 @@
-package tests.mail.pages;
+package framework.common.pages;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;

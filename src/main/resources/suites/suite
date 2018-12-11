@@ -1,27 +1,8 @@
-<!--
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Test suite" parallel="classes" thread-count="10">
-    <test name="Default tests" verbose="1" annotations="JDK" thread-count="10" parallel="classes">
-        <parameter name="driver" value="com.mysql.jdbc.Driver"/>
-        <parameter name="url" value="jdbc:mysql://localhost:3306/db"/>
-
-        <groups>
-            <run>
-                <exclude name="integration"/>
-            </run>
-        </groups>
-
+<suite name="Test suite" verbose="1">
+    <test name="Cloud test">
+        <classes>
+            <class name="tests.CloudTest"/>
+        </classes>
     </test>
-
-    <test name="Integration tests" annotations="JDK">
-        <groups>
-            <run>
-                <include name="integration"/>
-            </run>
-        </groups>
-
-        <packages>
-            <package name="com.example.*"/>
-        </packages>
-    </test>
-</suite>-->
+</suite>

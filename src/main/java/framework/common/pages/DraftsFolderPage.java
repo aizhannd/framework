@@ -1,6 +1,6 @@
-package tests.mail.pages;
+package framework.common.pages;
 
-import tests.mail.bo.Letter;
+import framework.common.bo.Letter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,15 +8,33 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SentFolderPage extends AbstractPage {
+public class DraftsFolderPage extends AbstractPage {
+
+    @FindBy(xpath = ".//div[@class='b-datalist__item__addr']")
+    private List<WebElement> addrList;
 
     @FindBy(xpath = ".//div[@class='b-datalist__item__panel']")
     private List<WebElement> mails;
 
-    @FindBy(id = "PH_logoutLink")
-    private WebElement logout;
+    @FindBy(xpath = "//a[@data-mnemo='drafts']")
+    private WebElement draftsFolderButton;
 
-    private List<Letter> getSentList() {
+    @FindBy(xpath = "//a[@href='/messages/sent/']")
+    private WebElement sentFolderButton;
+
+    private List<WebElement> getAddrList() {
+        return addrList;
+    }
+
+    public void openDraftsFolder() {
+        draftsFolderButton.click();
+    }
+
+    public void openSentFolder() {
+        sentFolderButton.click();
+    }
+
+    private List<Letter> getSavedMailsList() {
         List<Letter> results = new ArrayList<Letter>();
         for (WebElement mail : mails) {
             String addressee = mail.findElement(By.xpath(".//div[@class='b-datalist__item__addr']")).getText();
@@ -30,8 +48,8 @@ public class SentFolderPage extends AbstractPage {
         return results;
     }
 
-    public boolean isSentMailExist(Letter mail) {
-        List<Letter> draftMails = getSentList();
+    public boolean isSavedMailExist(Letter mail) {
+        List<Letter> draftMails = getSavedMailsList();
         boolean content = false;
         for (Letter draftMail : draftMails) {
             if (draftMail.getAddressee().equals(mail.getAddressee()) &&
@@ -44,7 +62,20 @@ public class SentFolderPage extends AbstractPage {
         return content;
     }
 
-    public void logout() {
-        logout.click();
+    private int getIndexOfMail(Letter mail) {
+        int index = 0;
+        List<Letter> draftMails = getSavedMailsList();
+        for (int i = 0; i < draftMails.size(); i++) {
+            if (draftMails.get(i).getAddressee().equals(mail.getAddressee()) &&
+                    draftMails.get(i).getSubject().equals(mail.getSubject()) &&
+                    draftMails.get(i).getBody().equals(mail.getBody())) {
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    public void openMail(Letter mail) {
+        getAddrList().get(getIndexOfMail(mail)).click();
     }
 }

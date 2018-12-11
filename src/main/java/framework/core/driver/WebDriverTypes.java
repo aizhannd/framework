@@ -1,4 +1,4 @@
-package framework.core.ui.driver;
+package framework.core.driver;
 
 public enum WebDriverTypes {
 

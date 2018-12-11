@@ -1,3 +1,3 @@
 # framework
 
-tests.mail.CloudTest
+CloudTest

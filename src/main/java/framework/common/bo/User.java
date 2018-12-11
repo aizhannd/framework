@@ -1,4 +1,4 @@
-package tests.mail.bo;
+package framework.common.bo;
 
 public class User {
     private String username;

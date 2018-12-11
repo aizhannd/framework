@@ -1,13 +1,13 @@
-package tests.mail;
+package tests;
 
-import framework.core.ui.driver.Driver;
-import tests.mail.bo.Letter;
-import tests.mail.bo.User;
+import framework.core.driver.Driver;
+import framework.common.bo.Letter;
+import framework.common.bo.User;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import tests.mail.pages.*;
+import framework.common.pages.*;
 
 public class MailTest {
     private InboxPage inbox;

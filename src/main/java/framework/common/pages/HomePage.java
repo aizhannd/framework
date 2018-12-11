@@ -1,6 +1,6 @@
-package tests.mail.pages;
+package framework.common.pages;
 
-import framework.core.ui.driver.Driver;
+import framework.core.driver.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -20,11 +20,7 @@ public class HomePage extends AbstractPage {
 
     public HomePage open() {
         Driver.getWebDriverInstance().get("https://mail.ru");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        waitForElementEnabled(username);
         return this;
     }
 

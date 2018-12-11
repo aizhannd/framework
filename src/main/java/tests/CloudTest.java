@@ -1,14 +1,14 @@
-package tests.mail;
+package tests;
 
-import framework.core.ui.driver.Driver;
-import tests.mail.bo.User;
+import framework.core.driver.Driver;
+import framework.common.bo.User;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
-import tests.mail.pages.CloudPage;
-import tests.mail.pages.HomePage;
-import tests.mail.pages.InboxPage;
-import tests.mail.pages.PicturesFolderCloudPage;
+import framework.common.pages.CloudPage;
+import framework.common.pages.HomePage;
+import framework.common.pages.InboxPage;
+import framework.common.pages.PicturesFolderCloudPage;
 
 public class CloudTest {
     private InboxPage inbox;

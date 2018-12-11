@@ -1,4 +1,4 @@
-package framework.core.ui.driver;
+package framework.core.driver;
 
 import framework.common.exception.UnknownDriverTypeException;
 import org.openqa.selenium.WebDriver;
@@ -41,7 +41,7 @@ public class Driver {
                     default:
                         throw new UnknownDriverTypeException("Unknown web driver specified: " + type);
                 }
-                driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+                driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                 driver.manage().window().maximize();
                 instances.put(name, driver);
             }
@@ -50,10 +50,6 @@ public class Driver {
             }
 			return driver;
 		}
-
-	public static WebDriver getWebDriverInstance(String name) throws IllegalStateException {
-		return getWebDriverInstance(name, defaultDriverType);
-	}
 
 	public static WebDriver getWebDriverInstance() throws IllegalStateException{
 		return getWebDriverInstance(DEFAULT_WEB_DRIVER, defaultDriverType);

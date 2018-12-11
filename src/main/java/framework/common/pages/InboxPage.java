@@ -1,4 +1,4 @@
-package tests.mail.pages;
+package framework.common.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

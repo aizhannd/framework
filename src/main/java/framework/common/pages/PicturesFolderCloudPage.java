@@ -1,6 +1,6 @@
-package tests.mail.pages;
+package framework.common.pages;
 
-import framework.core.ui.driver.Driver;
+import framework.core.driver.Driver;
 
 public class PicturesFolderCloudPage extends AbstractPage {
 

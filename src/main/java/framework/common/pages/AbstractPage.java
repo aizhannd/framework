@@ -1,6 +1,6 @@
-package tests.mail.pages;
+package framework.common.pages;
 
-import framework.core.ui.driver.Driver;
+import framework.core.driver.Driver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

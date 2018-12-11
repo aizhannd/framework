@@ -2,8 +2,8 @@ package framework.core.runner;
 
 import framework.common.config.Settings;
 import framework.common.config.TestNgConfig;
-import framework.core.ui.driver.Driver;
-import framework.core.ui.driver.WebDriverTypes;
+import framework.core.driver.Driver;
+import framework.core.driver.WebDriverTypes;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.openqa.selenium.WebDriverException;
