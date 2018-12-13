@@ -7,8 +7,6 @@ import java.util.ArrayList;
 
 public class InboxPage extends AbstractPage {
 
-    @FindBy(xpath = "//*[@id='PH_user-email']")
-    private WebElement userEmailIdentificator;
 
     @FindBy(xpath = "//*[@id='b-toolbar__left']//span")
     private WebElement createNewMailButton;
@@ -16,14 +14,8 @@ public class InboxPage extends AbstractPage {
     @FindBy(xpath = "//span[@class='js-text-inner pm-toolbar__button__text__inner' and contains(string(), 'Облако')]")
     private WebElement cloudButton;
 
-    public boolean isUserSignedIn() {
-        waitForElementVisible(userEmailIdentificator);
-        return userEmailIdentificator.isDisplayed();
-    }
-
-    public InboxPage openWriteNewMail() {
+    public void openWriteNewMail() {
         createNewMailButton.click();
-        return this;
     }
 
     public CloudPage openCloudPage() {

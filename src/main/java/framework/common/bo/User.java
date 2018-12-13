@@ -9,6 +9,10 @@ public class User {
         this.pass = pass;
     }
 
+    public User(){
+        this.username = "new_account_2018@bk.ru";
+        this.pass = "password2018";
+    }
     public String getUsername() {
         return username;
     }

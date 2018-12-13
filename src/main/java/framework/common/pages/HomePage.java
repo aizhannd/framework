@@ -1,6 +1,7 @@
 package framework.common.pages;
 
 import framework.core.driver.Driver;
+import framework.core.util.Waiting;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -15,12 +16,10 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//*[@id='mailbox:submit']/input")
     private WebElement signInButton;
 
-    @FindBy(xpath = "//*[@id='mailbox:domain']/option[4]")
-    private WebElement domain;
 
     public HomePage open() {
         Driver.getWebDriverInstance().get("https://mail.ru");
-        waitForElementEnabled(username);
+        Waiting.waitForElementEnabled(username);
         return this;
     }
 
@@ -31,11 +30,6 @@ public class HomePage extends AbstractPage {
 
     public HomePage fillPassword(String pass) {
         password.sendKeys(pass);
-        return this;
-    }
-
-    public HomePage chooseDomain() {
-        domain.click();
         return this;
     }
 

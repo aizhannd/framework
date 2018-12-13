@@ -1,5 +1,6 @@
 package framework.common.pages;
 
+import framework.core.util.Waiting;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -29,7 +30,7 @@ public class CloudPage extends AbstractPage {
     @FindBy(xpath = "//div[@data-id='/Новая папка']//div[@class='b-checkbox__box']")
     private WebElement newFolderCheckbox;
 
-    @FindBy(xpath = "//span[@class='b-toolbar__btn__text b-toolbar__btn__text_pad' and contains(string(), 'Удалить')]")
+    @FindBy(xpath = "//span[contains(string(), 'Удалить')]")
     private WebElement remove;
 
     @FindBy(xpath = "//button[@data-name='remove']")
@@ -48,7 +49,7 @@ public class CloudPage extends AbstractPage {
     }
 
     public CloudPage moveMouseToPicturesFolder() {
-        waitForElementEnabled(picturesFolder);
+        Waiting.waitForElementEnabled(picturesFolder);
         action.moveToElement(picturesFolder).perform();
         return this;
     }
@@ -59,6 +60,7 @@ public class CloudPage extends AbstractPage {
     }
 
     public void createFolder() {
+        Waiting.waitForElementEnabled(create);
         action
                 .click(create)
                 .click(createFolder)
