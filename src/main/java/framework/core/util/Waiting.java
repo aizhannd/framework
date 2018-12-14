@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.*;
 import java.util.List;
 
 public class Waiting {
-    private static final int WAIT_FOR_ELEMENT_TIMEOUT_SECONDS = 20;
+    private static final int WAIT_FOR_ELEMENT_TIMEOUT_SECONDS = 15;
 
     public static void waitForElementVisible(WebElement element) {
         new WebDriverWait(Driver.getWebDriverInstance(), WAIT_FOR_ELEMENT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(element));
@@ -51,19 +51,6 @@ public class Waiting {
             wait.ignoring(NoSuchElementException.class);
             wait.until(ExpectedConditions.not(ExpectedConditions.attributeContains(element, "value", oldValue)));
         } catch (TimeoutException e) {
-        }
-    }
-
-    public static boolean waitForElementIsPresent(WebDriver driver, WebElement element) {
-        FluentWait<WebDriver> wait = new WebDriverWait(driver, 10);
-        wait.ignoring(TimeoutException.class);
-        wait.ignoring(NoSuchElementException.class);
-        wait.ignoring(StaleElementReferenceException.class);
-        try {
-            wait.until(ExpectedConditions.visibilityOf(element));
-            return true;
-        } catch (TimeoutException e) {
-            return false;
         }
     }
 
