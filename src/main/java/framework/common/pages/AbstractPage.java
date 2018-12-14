@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+
 public class AbstractPage {
     protected WebDriver driver;
 
@@ -13,8 +14,8 @@ public class AbstractPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void refresh(){
-            Driver.getWebDriverInstance().navigate().refresh();
+    public void refresh() {
+        Driver.getWebDriverInstance().navigate().refresh();
     }
 
     protected void highlightElement(WebElement element) {
