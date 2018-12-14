@@ -18,11 +18,8 @@ public class CloudPage extends AbstractPage {
     @FindBy(xpath = "//div[@class='b-panel__close__icon']")
     private WebElement closepanel;
 
-    @FindBy(xpath = "//div[@data-group='create']")
-    private WebElement create;
-
-    @FindBy(xpath = "//span[contains(string(), 'Папку')]")
-    private WebElement createFolder;
+    @FindBy(xpath = "//span[contains(string(), 'Создать папку')]")
+    private WebElement createFolderButton;
 
     @FindBy(xpath = "//div[@class='b-filename__text']")
     private List<WebElement> fileNameList;
@@ -60,10 +57,9 @@ public class CloudPage extends AbstractPage {
     }
 
     public void createFolder() {
-        Waiting.waitForElementEnabled(create);
+        Waiting.waitForElementEnabled(createFolderButton);
         action
-                .click(create)
-                .click(createFolder)
+                .click(createFolderButton)
                 .sendKeys(Keys.ENTER)
                 .build()
                 .perform();
