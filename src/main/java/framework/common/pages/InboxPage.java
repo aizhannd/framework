@@ -1,5 +1,6 @@
 package framework.common.pages;
 
+import framework.core.util.Waiting;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -7,6 +8,8 @@ import java.util.ArrayList;
 
 public class InboxPage extends AbstractPage {
 
+    @FindBy(xpath = "//*[@id='PH_user-email']")
+    private WebElement userEmailIdentificator;
 
     @FindBy(xpath = "//*[@id='b-toolbar__left']//span")
     private WebElement createNewMailButton;
@@ -16,6 +19,11 @@ public class InboxPage extends AbstractPage {
 
     public void openWriteNewMail() {
         createNewMailButton.click();
+    }
+
+    public String getUserName() {
+        Waiting.waitForElementVisibleEnabled(userEmailIdentificator);
+        return userEmailIdentificator.getText();
     }
 
     public CloudPage openCloudPage() {
