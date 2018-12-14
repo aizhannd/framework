@@ -31,6 +31,7 @@ public class MailTest extends BaseTest {
     public void testContent() {
         newMailPage.openDraftsFolder();
         newMailPage.refresh();
+        draftsFolderPage = new DraftsFolderPage();
         Assert.assertTrue(draftsFolderPage.isSavedMailExist(mail), "The draft content isn't the same as in mail");
     }
 
@@ -41,7 +42,6 @@ public class MailTest extends BaseTest {
 
     @Test(dependsOnMethods = "testSecondMail")
     public void sendMailTest() {
-        draftsFolderPage = new DraftsFolderPage();
         draftsFolderPage.openMail(mail);
         draftsFolderPage.refresh();
         newMailPage.sendMail();
