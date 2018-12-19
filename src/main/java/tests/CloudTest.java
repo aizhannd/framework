@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import framework.common.pages.CloudPage;
 import framework.common.pages.PicturesFolderCloudPage;
 
-public class CloudTest extends BaseTest{
+public class CloudTest extends BaseTest {
 
     private CloudPage cloudPage;
 
