@@ -1,7 +1,7 @@
 package framework.common.pages;
 
+import framework.core.driver.DriverDecorator;
 import framework.core.util.Waiting;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class CloudPage extends AbstractPage {
+public class CloudPage extends DriverDecorator {
     private Actions action = new Actions(driver);
 
     @FindBy(xpath = "//div[@data-id='/Pictures']/*[@class='b-thumb__content']")
@@ -37,8 +37,7 @@ public class CloudPage extends AbstractPage {
     private WebElement okClose;
 
     public void closePanel() {
-        JavascriptExecutor executor = (JavascriptExecutor) driver;
-        executor.executeScript("arguments[0].click();", closepanel);
+        closepanel.click();
     }
 
     private List<WebElement> getFileNameList() {
