@@ -1,11 +1,11 @@
 package framework.common.pages;
 
-import framework.core.driver.Driver;
+import framework.core.driver.DriverDecorator;
 import framework.core.util.Waiting;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends AbstractPage {
+public class HomePage extends DriverDecorator {
 
     @FindBy(id = "mailbox:login")
     private WebElement username;
@@ -18,7 +18,7 @@ public class HomePage extends AbstractPage {
 
 
     public HomePage open() {
-        Driver.getWebDriverInstance().get("https://mail.ru");
+        driver.get("https://mail.ru");
         Waiting.waitForElementEnabled(username);
         return this;
     }

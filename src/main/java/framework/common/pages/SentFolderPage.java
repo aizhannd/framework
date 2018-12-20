@@ -1,6 +1,7 @@
 package framework.common.pages;
 
 import framework.common.bo.Letter;
+import framework.core.driver.DriverDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SentFolderPage extends AbstractPage {
+public class SentFolderPage extends DriverDecorator {
 
     @FindBy(xpath = ".//div[@class='b-datalist__item__panel']")
     private List<WebElement> mails;
