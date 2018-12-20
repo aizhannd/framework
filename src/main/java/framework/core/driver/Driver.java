@@ -14,6 +14,7 @@ public class Driver {
         if (driver == null) {
             WebDriverCreator creator = new ChromeDriverCreator();
             driver = creator.FactoryMethod();
+            driver = new DriverDecorator();
             driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             driver.manage().window().maximize();
