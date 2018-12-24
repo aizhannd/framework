@@ -15,7 +15,7 @@ public class Runner {
         suite.setName("Main suite");
         suite.setSuiteFiles(
                 new ArrayList<String>() {{
-                    add("./src/main/resources/suites/main.xml");
+                    add("./src/main/resources/suites/cloud.xml");
                 }}
         );
 
