@@ -31,7 +31,8 @@ public class CloudTest extends BaseTest {
 
     @Test(dependsOnMethods = "removeTheFolder")
     public void doubleClickTest() {
-        PicturesFolderCloudPage picturesFolderPage = cloudPage.moveMouseToPicturesFolder().doubleClick();
+        cloudPage.openPicturesFolder();
+        PicturesFolderCloudPage picturesFolderPage = new PicturesFolderCloudPage();
         Assert.assertEquals(picturesFolderPage.getTitle(), "Pictures / Облако Mail.Ru", "The title is wrong");
     }
 }

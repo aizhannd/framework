@@ -2,15 +2,14 @@ package framework.common.pages;
 
 import framework.core.driver.DriverDecorator;
 import framework.core.util.Waiting;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 public class CloudPage extends DriverDecorator {
-    private Actions action = new Actions(driver);
 
     @FindBy(xpath = "//div[@data-id='/Pictures']/*[@class='b-thumb__content']")
     private WebElement picturesFolder;
@@ -44,34 +43,22 @@ public class CloudPage extends DriverDecorator {
         return fileNameList;
     }
 
-    public CloudPage moveMouseToPicturesFolder() {
+    public void openPicturesFolder() {
         Waiting.waitForElementEnabled(picturesFolder);
-        action.moveToElement(picturesFolder).perform();
-        return this;
-    }
-
-    public PicturesFolderCloudPage doubleClick() {
-        action.doubleClick().perform();
-        return new PicturesFolderCloudPage();
+        picturesFolder.click();
     }
 
     public void createFolder() {
         Waiting.waitForElementEnabled(createFolderButton);
-        action
-                .click(createFolderButton)
-                .sendKeys(Keys.ENTER)
-                .build()
-                .perform();
+        createFolderButton.click();
+        findElement(By.cssSelector(" input[placeholder]")).sendKeys(Keys.ENTER);
     }
 
     public void removeTheNewFolder() {
-        action
-                .click(newFolderCheckbox)
-                .click(remove)
-                .click(removeButton)
-                .click(okClose)
-                .build()
-                .perform();
+        newFolderCheckbox.click();
+        remove.click();
+        removeButton.click();
+        okClose.click();
     }
 
     public boolean isFolderExist() {
@@ -79,7 +66,6 @@ public class CloudPage extends DriverDecorator {
         boolean isExist = false;
         for (WebElement filename : list) {
             if (isExist = filename.getText().equals("Новая папка")) {
-                highlightElement(filename);
                 break;
             }
         }
