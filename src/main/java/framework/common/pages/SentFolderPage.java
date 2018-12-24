@@ -14,9 +14,6 @@ public class SentFolderPage extends DriverDecorator {
     @FindBy(xpath = ".//div[@class='b-datalist__item__panel']")
     private List<WebElement> mails;
 
-    @FindBy(id = "PH_logoutLink")
-    private WebElement logout;
-
     private List<Letter> getSentList() {
         List<Letter> results = new ArrayList<Letter>();
         for (WebElement mail : mails) {
@@ -43,9 +40,5 @@ public class SentFolderPage extends DriverDecorator {
             }
         }
         return content;
-    }
-
-    public void logout() {
-        logout.click();
     }
 }
