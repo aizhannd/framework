@@ -1,10 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Tests" parallel="classes" thread-count="2">
-    <test verbose="1" name="Mail test">
-        <classes>
-            <class name="tests.MailTest"/>
-        </classes>
-    </test>
+<suite name="Tests" thread-count="1">
 
     <test verbose="1" name="Cloud test">
         <classes>
