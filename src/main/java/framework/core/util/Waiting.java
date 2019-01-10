@@ -65,12 +65,4 @@ public class Waiting {
         }
     }
 
-    public static void waitForPageIsLoaded(int timeout) {
-        try {
-            FluentWait<WebDriver> wait = new WebDriverWait(Driver.getWebDriverInstance(), timeout);
-            ExpectedCondition<Boolean> pageLoadCondition = driver1 -> ((JavascriptExecutor) driver1).executeScript("return document.readyState").equals("complete");
-            wait.until(pageLoadCondition);
-        } catch (TimeoutException ignored) {
-        }
-    }
 }
