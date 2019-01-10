@@ -30,7 +30,7 @@ public class CloudTest extends BaseTest {
     }
 
     @Test(dependsOnMethods = "removeTheFolder")
-    public void doubleClickTest() {
+    public void openPicturesFolderTest() {
         cloudPage.openPicturesFolder();
         PicturesFolderCloudPage picturesFolderPage = new PicturesFolderCloudPage();
         Assert.assertEquals(picturesFolderPage.getTitle(), "Pictures / Облако Mail.Ru", "The title is wrong");
