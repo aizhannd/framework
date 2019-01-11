@@ -46,7 +46,7 @@ public class CloudPage extends BasePage {
     public void openPicturesFolder() {
         Waiting.waitForElementEnabled(picturesFolder);
         picturesFolder.click();
-        MyLogger.info("");
+        MyLogger.LOGGER.info("");
     }
 
     public void createFolder() {
