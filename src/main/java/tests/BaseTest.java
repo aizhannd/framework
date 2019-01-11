@@ -4,6 +4,7 @@ import framework.common.bo.User;
 import framework.common.pages.HomePage;
 import framework.common.pages.InboxPage;
 import framework.core.driver.Driver;
+import framework.core.util.MyLogger;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -24,5 +25,6 @@ public class BaseTest {
     @AfterClass(description = "closePanel browser")
     public void kill() {
         Driver.getWebDriverInstance().quit();
+        MyLogger.LOGGER.info("Browser closed");
     }
 }
