@@ -1,10 +1,9 @@
 package framework.common.pages;
 
-import framework.core.driver.DriverDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CreateNewMailPage extends DriverDecorator {
+public class CreateNewMailPage extends BasePage {
 
     @FindBy(xpath = "//textarea[@data-original-name='To']")
     private WebElement addresseeTextArea;

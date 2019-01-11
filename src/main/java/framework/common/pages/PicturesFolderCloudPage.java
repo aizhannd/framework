@@ -1,9 +1,8 @@
 package framework.common.pages;
 
 import framework.core.driver.Driver;
-import framework.core.driver.DriverDecorator;
 
-public class PicturesFolderCloudPage extends DriverDecorator {
+public class PicturesFolderCloudPage extends BasePage {
 
     public String getTitle() {
             return Driver.getWebDriverInstance().getTitle();

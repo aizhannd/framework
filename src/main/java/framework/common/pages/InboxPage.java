@@ -1,13 +1,12 @@
 package framework.common.pages;
 
-import framework.core.driver.DriverDecorator;
 import framework.core.util.Waiting;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
 
-public class InboxPage extends DriverDecorator {
+public class InboxPage extends BasePage {
 
     @FindBy(xpath = "//*[@id='PH_user-email']")
     private WebElement userEmailIdentificator;

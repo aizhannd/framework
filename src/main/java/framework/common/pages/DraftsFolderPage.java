@@ -1,7 +1,6 @@
 package framework.common.pages;
 
 import framework.common.bo.Letter;
-import framework.core.driver.DriverDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DraftsFolderPage extends DriverDecorator {
+public class DraftsFolderPage extends BasePage {
 
     @FindBy(xpath = ".//div[@class='b-datalist__item__addr']")
     private List<WebElement> addrList;

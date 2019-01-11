@@ -1,6 +1,6 @@
 package framework.common.pages;
 
-import framework.core.driver.DriverDecorator;
+import framework.core.util.MyLogger;
 import framework.core.util.Waiting;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class CloudPage extends DriverDecorator {
+public class CloudPage extends BasePage {
 
     @FindBy(xpath = "//div[@data-id='/Pictures']/*[@class='b-thumb__content']")
     private WebElement picturesFolder;
@@ -46,12 +46,13 @@ public class CloudPage extends DriverDecorator {
     public void openPicturesFolder() {
         Waiting.waitForElementEnabled(picturesFolder);
         picturesFolder.click();
+        MyLogger.info("");
     }
 
     public void createFolder() {
         Waiting.waitForElementEnabled(createFolderButton);
         createFolderButton.click();
-        findElement(By.cssSelector(" input[placeholder]")).sendKeys(Keys.ENTER);
+        driver.findElement(By.cssSelector(" input[placeholder]")).sendKeys(Keys.ENTER);
     }
 
     public void removeTheNewFolder() {
