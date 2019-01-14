@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeClass;
 public class BaseTest {
 
     protected InboxPage inbox;
-    protected User user = new User();
+    private User user = new User();
 
     @BeforeClass
     public void login() {
@@ -22,8 +22,8 @@ public class BaseTest {
         return inbox.getUserName().equals(user.getUsername());
     }
 
-    @AfterClass(description = "closePanel browser")
-    public void kill() {
+    @AfterClass
+    public static void quitBrowser() {
         Driver.getWebDriverInstance().quit();
         MyLogger.LOGGER.info("Browser closed");
     }
