@@ -1,3 +1,3 @@
 # framework
 
-CloudTest
+resources/suites/cloud.xml
