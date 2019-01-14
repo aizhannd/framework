@@ -1,3 +1,3 @@
 # framework
 
-resources/suites/cloud.xml
+main/resources/suites/cloud.xml
