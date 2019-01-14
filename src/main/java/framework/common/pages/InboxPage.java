@@ -1,5 +1,6 @@
 package framework.common.pages;
 
+import framework.core.util.MyLogger;
 import framework.core.util.Waiting;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,8 +28,10 @@ public class InboxPage extends BasePage {
     }
 
     public CloudPage openCloudPage() {
+        MyLogger.LOGGER.info("Clicking cloud button");
         cloudButton.click();
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        MyLogger.LOGGER.info("Switching to the new tab");
         driver.switchTo().window(tabs.get(1));
         return new CloudPage();
     }

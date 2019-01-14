@@ -1,5 +1,6 @@
 package tests;
 
+import framework.core.util.MyLogger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import framework.common.pages.CloudPage;
@@ -11,7 +12,8 @@ public class CloudTest extends BaseTest {
 
     @Test(description = "Login test")
     public void loginTest() {
-        Assert.assertTrue(isUserSignedIn(), "Authentication failed");
+        MyLogger.LOGGER.info("Asserting that user signed in");
+        Assert.assertTrue(isUserSignedIn());
     }
 
     @Test(dependsOnMethods = "loginTest")
@@ -20,19 +22,22 @@ public class CloudTest extends BaseTest {
         cloudPage.closePanel();
         cloudPage.createFolder();
         cloudPage.refresh();
-        Assert.assertTrue(cloudPage.isFolderExist(), "The folder doesn't created");
+        MyLogger.LOGGER.info("Asserting that the folder was created");
+        Assert.assertTrue(cloudPage.isFolderExist());
     }
 
     @Test(dependsOnMethods = "createFolder")
     public void removeTheFolder() {
         cloudPage.removeTheNewFolder();
-        Assert.assertFalse(cloudPage.isFolderExist(), "The folder doesn't removed");
+        MyLogger.LOGGER.info("Asserting that folder is removed");
+        Assert.assertFalse(cloudPage.isFolderExist());
     }
 
     @Test(dependsOnMethods = "removeTheFolder")
     public void openPicturesFolderTest() {
         cloudPage.openPicturesFolder();
         PicturesFolderCloudPage picturesFolderPage = new PicturesFolderCloudPage();
-        Assert.assertEquals(picturesFolderPage.getTitle(), "Pictures / Облако Mail.Ru", "The title is wrong");
+        MyLogger.LOGGER.info("Asserting that we on 'Pictures folder' page");
+        Assert.assertEquals(picturesFolderPage.getTitle(), "Pictures / Облако Mail.Ru");
     }
 }

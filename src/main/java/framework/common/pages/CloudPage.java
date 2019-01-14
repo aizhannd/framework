@@ -45,20 +45,26 @@ public class CloudPage extends BasePage {
 
     public void openPicturesFolder() {
         Waiting.waitForElementEnabled(picturesFolder);
+        MyLogger.LOGGER.info("Clicking 'Pictures folder' icon");
         picturesFolder.click();
-        MyLogger.LOGGER.info("");
     }
 
     public void createFolder() {
         Waiting.waitForElementEnabled(createFolderButton);
+        MyLogger.LOGGER.info("Clicking the 'Create folder' button");
         createFolderButton.click();
+        MyLogger.LOGGER.info("Pressing ENTER");
         driver.findElement(By.cssSelector(" input[placeholder]")).sendKeys(Keys.ENTER);
     }
 
     public void removeTheNewFolder() {
+        MyLogger.LOGGER.info("Clicking 'New folder' checkbox");
         newFolderCheckbox.click();
+        MyLogger.LOGGER.info("Clicking 'Remove' button");
         remove.click();
+        MyLogger.LOGGER.info("Confirming at pop-up window that we want to delete this folder");
         removeButton.click();
+        MyLogger.LOGGER.info("Close pop-up window");
         okClose.click();
     }
 
