@@ -5,6 +5,9 @@
             <PatternLayout
                     pattern="%d [%t] %-5level %logger{36} - %msg%n%throwable"/>
         </Console>
+        <File name="FileAppender" fileName="MyLogFile.log" immediateFlush="false" append="false">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
         <ReportPortalLog4j2Appender name="ReportPortalAppender">
             <PatternLayout
                     pattern="%d [%t] %-5level %logger{36} - %msg%n%throwable"/>
@@ -14,6 +17,7 @@
         <Root level="DEBUG">
             <AppenderRef ref="ConsoleAppender"/>
             <AppenderRef ref="ReportPortalAppender"/>
+            <AppenderRef ref="FileAppender"/>
         </Root>
     </Loggers>
 </Configuration>
