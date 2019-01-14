@@ -21,7 +21,7 @@ public class Driver {
         WebDriver driver = new ChromeDriver();
         MyLogger.LOGGER.info("New driver instantiated");
         driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         MyLogger.LOGGER.info("Implicit wait applied on the driver for 10 seconds");
         driver.manage().window().maximize();
         return driver;
